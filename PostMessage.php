@@ -26,7 +26,14 @@
     // entry point
     // data submitted? yes - process. no - display form
     
+    $subject = "";
+    $name = "";
+    $message = "";
+    
     if (isset($_POST['submit'])) {
+        global $subject;
+        global $name;
+        global $message;
         $subject = stripslashes($_POST['subject']);
         $name = stripslashes($_POST['name']);
         $message = stripslashes($_POST['message']);
@@ -64,6 +71,9 @@
             }
         }
         else {
+            fwrite($fileHandle, $messageRecord);
+            fclose($fileHandle);
+            echo "Your message has been saved.\n";
             $subject = "";
             $name = "";
             $message = "";
@@ -76,8 +86,8 @@
     <hr>
     <form action="PostMessage.php" method="post">
         <span style="font-weight: bold;">Subject: <input type="text" name="subject" value="<?php echo $subject; ?>"></span>
-        <!--        <span style="font-weight: bold;">Name: <input type="text" name="name" value="<?php //echo $name; ?>"></span><br>-->
-        <!--        <textarea name="message" rows="6" cols="80" style="margin: 10px 5px 5px;"><?php //echo $message; ?></textarea><br>-->
+        <span style="font-weight: bold;">Name: <input type="text" name="name" value="<?php echo $name; ?>"></span><br>
+        <textarea name="message" rows="6" cols="80" style="margin: 10px 5px 5px;"><?php echo $message; ?></textarea><br>
         <input type="reset" name="reset" value="Reset Form">&nbsp;&nbsp;
         <input type="submit" name="submit" value="Post Message">
     </form>

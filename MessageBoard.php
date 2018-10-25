@@ -24,20 +24,30 @@
     <!-- HTML form -->
     <h1>Message Board</h1>
     <?php
+    
+    $keyMessageArray = array();
+    
     if (isset($_GET['action'])) {
         //checks for if a get message was sent
         if (file_exists("messages.txt") && filesize("messages.txt") != 0) {
+            $messageArray = array();
             $messageArray = file("messages.txt");
             switch ($_GET['action']) {
                     //performs an action based on what was given
                 case 'Delete First':
-                    $messageArray = array_shift($messageArray);
+                    array_shift($messageArray);
                     break;
                 case 'Delete Last':
-                    $messageArray = array_pop($messageArray);
+                    array_pop($messageArray);
+                    break;
+                case 'Sort Ascending':
+                    sort($messageArray);
+                    break;
+                case 'Sort Descending':
+                    rsort($messageArray);
                     break;
                 case 'Delete Message':
-                    $messageArray = array_splice($messageArray, $_GET['message'], 1); // (does the job properly, but is not often used)
+                    array_splice($messageArray, $_GET['message'], 1); // (does the job properly, but is not often used)
                     break;
                 case 'Remove Duplicates':
                     $messageArray = array_unique($messageArray);
@@ -75,6 +85,7 @@
         //the for loop below changes the indexed array to an associative one, using the subject as the name for each string.
         for ($i = 0; $i < $count; $i++) {
             $currMsg = explode("~", $messageArray[$i]);
+            global $keyMessageArray;
             $keyMessageArray[$currMsg[0]] = $currMsg[1] . "~" . $currMsg[2];
         }
         
@@ -82,7 +93,7 @@
         //the key function returns where the pointer is within the array.
         $key = key($keyMessageArray);
         
-        //this liips through $keyMessageArray to display each piece of information, position, and the option to delete, all within a table.
+        //this loops through $keyMessageArray to display each piece of information, position, and the option to delete, all within a table.
         foreach ($keyMessageArray as $message) {
             $currMsg = explode("~", $message);
             echo "<tr>\n";
@@ -93,7 +104,7 @@
             echo "<td width=\"10%\"><a href='MessageBoard.php?" . "action=Delete%20Message" . "&message=" . ($index - 1) . "'>Delete This Message</a></td>\n";
             echo "</tr>\n";
             $index++;
-            // the line bleow moves the pointer in $keyMessageArray and re-locates the pointer's position
+            // the line below moves the pointer in $keyMessageArray and re-locates the pointer's position
             next($keyMessageArray);
             $key = key($keyMessageArray);
         }
@@ -102,9 +113,11 @@
     ?>
     <p>
         <a href="PostMessage.php">Post New Message</a><br>
+        <a href="MessageBoard.php?action=Sort%20Ascending">Sort Subject A-Z</a><br>
+        <a href="MessageBoard.php?action=Sort%20Descending">Sort Subject Z-A</a><br>
         <a href="MessageBoard.php?action=Delete%20First">Delete First Message</a><br>
         <a href="MessageBoard.php?action=Delete%20Last">Delete Last Message</a><br>
-        <a href="MessageBoard.php?action=Remove%20Duplicates">Remove Duplicates</a><br>
+        <!--        <a href="MessageBoard.php?action=Remove%20Duplicates">Remove Duplicates</a><br>-->
     </p>
 </body>
 
