@@ -18,6 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <script src="modernizr.custom.65897.js"></script>
+    <link href="Guests.css" rel="stylesheet">
 </head>
 
 <body>
@@ -71,7 +72,7 @@
     } else {
         // displays registered users to user via table
         $usersArray = file("Guests.txt");
-        echo "<table style=\"background-color: lightgray;\" border=\"1\" width=\"100%\">\n";
+        echo "<table style=\"background-color: bisque;\" border=\"1\" width=\"100%\">\n";
         $count = count($usersArray);
         // turns indexed array into associative array
         for ($i = 0; $i < $count; $i++) {
@@ -88,11 +89,11 @@
         foreach ($keyUsersArray as $user) {
             $currUser = explode("~", $user);
             echo "<tr>\n";
-            echo "<td width=\"5%\" style=\"text-align: center; font-weight: bold;\">" . $index . "</td>\n";
-            echo "<td width = \"85%\"><span style=\"font-weight: bold;\">Username: </span>" . htmlentities($key) . "<br>\n";
+            echo "<td width=\"5%\" style=\"text-align: center; font-weight: bold; background-color: antiquewhite;\">" . $index . "</td>\n";
+            echo "<td width = \"85%\" style=\"background-color: antiquewhite;\"><span style=\"font-weight: bold;\">Username: </span>" . htmlentities($key) . "<br>\n";
             echo "<span style=\"font-weight: bold;\">Name: </span>" . htmlentities($currUser[0]) . "<br>\n";
             echo "<span style=\"font-weight: bold;\">E-mail: </span><br>\n" . htmlentities($currUser[1]) . "</td>\n";
-            echo "<td width=\"10%\"><a href='GuestBook.php?" . "action=Delete%20User" . "&user=" . ($index - 1) . "'>Delete This User</a></td>\n";
+            echo "<td width=\"10%\" style=\"text-align: center; background-color: antiquewhite;\"><a href='GuestBook.php?" . "action=Delete%20User" . "&user=" . ($index - 1) . "'>Delete This User</a></td>\n";
             echo "</tr>\n";
             $index++;
             // moves the pointer
@@ -103,10 +104,10 @@
     }
     ?>
     <p>
-        <a href="PostGuest.php">Register New User</a><br>
-        <a href="GuestBook.php?action=Sort%20Ascending">Sort Users A-Z</a><br>
-        <a href="GuestBook.php?action=Sort%20Descending">Sort Users Z-A</a><br>
-        <a href="GuestBook.php?action=Delete%20First">Delete First User</a><br>
+        <a href="PostGuest.php">Register New User</a>&nbsp;&nbsp;
+        <a href="GuestBook.php?action=Sort%20Ascending">Sort Users A-Z</a>&nbsp;&nbsp;
+        <a href="GuestBook.php?action=Sort%20Descending">Sort Users Z-A</a>&nbsp;&nbsp;
+        <a href="GuestBook.php?action=Delete%20First">Delete First User</a>&nbsp;&nbsp;
         <a href="GuestBook.php?action=Delete%20Last">Delete Last User</a><br>
     </p>
 </body>

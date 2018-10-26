@@ -1,0 +1,31 @@
+body {
+    background-color: beige;
+    width: 85%;
+    margin: 0px auto;
+}
+
+form {
+    background-color: antiquewhite;
+    padding: 10px;
+    border: 5px solid bisque;
+    border-radius: 15px;
+    width: 40%;
+    max-width: 225px;
+    margin: 0px auto;
+}
+
+input {
+    background-color: aliceblue;
+    color: #0c0000;
+}
+
+a {
+    background-color: aliceblue;
+    color: #0c0000;
+    border: 1px solid #d1d1d1;
+    border-radius: 1px;
+    font-family: arial;
+    font-size: 8pt;
+    text-decoration: none;
+    padding: 3px 5px;
+}
