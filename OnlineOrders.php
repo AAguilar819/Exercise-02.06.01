@@ -2,12 +2,12 @@
 
 <!--
     
-    Project 02.06.01
+    Project 02.06.02
     
     Author: Abraham Aguilar
-    Date: 10.24.18
+    Date: 10.26.18
     
-    GuestBook.php
+    OnlineOrders.php
     
 -->
 
@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <script src="modernizr.custom.65897.js"></script>
-    <link href="Guests.css" rel="stylesheet">
+    <link href="Orders.css" rel="stylesheet">
 </head>
 
 <body>
@@ -104,11 +104,11 @@
     }
     ?>
     <p>
-        <a href="PostGuest.php">Register New User</a>&nbsp;&nbsp;
-        <a href="GuestBook.php?action=Sort%20Ascending">Sort Users A-Z</a>&nbsp;&nbsp;
-        <a href="GuestBook.php?action=Sort%20Descending">Sort Users Z-A</a>&nbsp;&nbsp;
-        <a href="GuestBook.php?action=Delete%20First">Delete First User</a>&nbsp;&nbsp;
-        <a href="GuestBook.php?action=Delete%20Last">Delete Last User</a><br>
+        <a href="PostOrders.php">Register New User</a>&nbsp;&nbsp;
+        <a href="OnlineOrders.php?action=Sort%20Ascending">Sort Users A-Z</a>&nbsp;&nbsp;
+        <a href="OnlineOrders.php?action=Sort%20Descending">Sort Users Z-A</a>&nbsp;&nbsp;
+        <a href="OnlineOrders.php?action=Delete%20First">Delete First User</a>&nbsp;&nbsp;
+        <a href="OnlineOrders.php?action=Delete%20Last">Delete Last User</a><br>
     </p>
 </body>
 

@@ -2,12 +2,12 @@
 
 <!--
     
-    Project 02.06.01
+    Project 02.06.02
     
     Author: Abraham Aguilar
-    Date: 10.24.18
+    Date: 10.26.18
     
-    PostGuest.php
+    PostOrders.php
     
 -->
 
@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <script src="modernizr.custom.65897.js"></script>
-    <link href="Guests.css" rel="stylesheet">
+    <link href="Orders.css" rel="stylesheet">
 </head>
 
 <body>
@@ -101,15 +101,44 @@
     <!-- HTML form -->
     <hr>
     <form action="PostGuest.php" method="post">
-        <span style="font-weight: bold;">User Name: <input type="text" name="userName" value="<?php echo $userName; ?>"></span><br><br>
-        <span style="font-weight: bold;">Name: <input type="text" name="name" value="<?php echo $name; ?>"></span><br><br>
-        <span style="font-weight: bold;">E-mail: <input type="text" name="email" value="<?php echo $email; ?>"></span><br><br>
-        <input type="reset" name="reset" value="Reset Form">&nbsp;&nbsp;
-        <input type="submit" name="submit" value="Register">
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th colspan="4">Items available for sale:</th>
+                </tr>
+                <tr>
+                    <th>Name:</th>
+                    <th>Description:</th>
+                    <th>Cost:</th>
+                    <th>Quantity to purchase:</th>
+                    <th>Order:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="10%">
+                        <p>[INSERT CONTENTS]</p>
+                    </td>
+                    <td>
+                        <p>[INSERT CONTENTS]</p>
+                    </td>
+                    <td>
+                        <p>[INSERT CONTENTS]</p>
+                    </td>
+                    <td>
+                        <p><input type="number" min="0" max="5" name="quantity" value="0"></p>
+                    </td>
+                    <td>
+                        <p><input type="checkbox" name="[INSERT CONTENTS]" value="Place in Shopping Cart">
+                            Click to order</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </form>
     <hr>
     <p>
-        <a href="GuestBook.php">View Registered Users</a>
+        <a href="OnlineOrders.php">View Registered Users</a>
     </p>
 </body>
 
